@@ -1,5 +1,7 @@
 package com.qa.CDsYO.domain;
 
+import org.hibernate.annotations.Fetch;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,7 +13,8 @@ public class CD {
     @Column(name = "title")
     private String title;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL,
+    fetch = FetchType.EAGER)
     private List<Artist> artists;
 
     public CD() {
