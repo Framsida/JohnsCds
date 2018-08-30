@@ -9,12 +9,13 @@ import java.util.List;
 public class CD {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     @Column(name = "title")
     private String title;
 
-    @OneToMany(cascade = CascadeType.ALL,
-    fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "cd")
     private List<Artist> artists;
 
     public CD() {
